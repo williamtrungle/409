@@ -21,9 +21,13 @@ class Star {
             vertex = vertex.next;
         }
 
-        System.out.printf("\nRandom node: ");
+        System.out.printf("\nRandom vertex: ");
         vertex = vertex.random(size);
         System.out.printf("(%f, %f)\n", vertex.x, vertex.y);
+
+        System.out.printf("\nGenerate candidate: ");
+        double[] c = vertex.candidate();
+        System.out.printf("(%f, %f)\n", c[0], c[1]);
     }
 
     // Create polygon
