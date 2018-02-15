@@ -11,19 +11,19 @@ class Star {
 
     public static void main(String[] args) {
         Vertex vertex = constructPolygon();
+        int size = polygon.length;
 
         if (args.length >= 1) System.out.println(args[0]);
         if (args.length >= 2) System.out.println(args[1]);
-        for (int i = 0; i < polygon.length; i++) {
-            if (vertex != null) {
-                System.out.printf("(%f, %f)\n", vertex.x, vertex.y);
-                vertex = vertex.next;
-            } else {
-                System.out.printf("Error: vertex (%d) is null\n", i);
-                return;
-            }
+        System.out.println("Polygon:");
+        for (int i = 0; i < size; i++) {
+            System.out.printf("(%f, %f)\n", vertex.x, vertex.y);
+            vertex = vertex.next;
         }
 
+        System.out.printf("\nRandom node: ");
+        vertex = vertex.random(size);
+        System.out.printf("(%f, %f)\n", vertex.x, vertex.y);
     }
 
     // Create polygon
@@ -43,19 +43,5 @@ class Star {
         first.prev = v;
         v.next = first;
         return first;
-    }
-
-    // Doubly-Linked Circular List
-    static class Vertex {
-        
-        double x, y;
-        Vertex prev, next;
-
-        Vertex(double x, double y) {
-            this.x = x;
-            this.y = y;
-            this.prev = null;
-            this.next = null;
-        }
     }
 }
