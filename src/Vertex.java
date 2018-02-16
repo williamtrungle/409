@@ -1,9 +1,10 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-class Vertex implements Runnable {
+class Vertex {
     
     double x, y;
     Vertex prev, next;
+    boolean first = false;
 
     Vertex(double x, double y) {
         this.x = x;
@@ -32,7 +33,9 @@ class Vertex implements Runnable {
         return c;
     }
 
-    public void run() {
-        //
+    synchronized void move(double[] c) {
+        this.x = c[0];
+        this.y = c[1];
     }
+
 }
