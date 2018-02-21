@@ -70,6 +70,7 @@ class Star {
         first.prev = v;
         first.first = true;
         v.next = first;
+        v.last = true;
         return first;
     }
 }

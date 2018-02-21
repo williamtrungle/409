@@ -5,6 +5,7 @@ class Vertex {
     double x, y;
     Vertex prev, next;
     boolean first = false;
+    boolean last = false;
 
     Vertex(double x, double y) {
         this.x = x;
@@ -33,7 +34,7 @@ class Vertex {
         return c;
     }
 
-    synchronized void move(double[] c) {
+     synchronized void move(double[] c) {
         this.x = c[0];
         this.y = c[1];
     }
